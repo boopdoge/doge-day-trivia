@@ -439,6 +439,14 @@
 .reaction-image.hidden {
   display: none;
 }
+.prize-image {
+  display: block;
+  width: min(300px, 85%);
+  max-height: 260px;
+  object-fit: contain;
+  margin: 0 auto 18px;
+  border-radius: 22px;
+}
   </style>
 </head>
 
@@ -555,6 +563,11 @@
         <p id="resultMessage" class="result-message"></p>
 
         <div id="prizeBox" class="prize-box hidden">
+          <img
+  src="doge-prize.png"
+  alt="Doge Day prize"
+  class="prize-image"
+>
           <h3>🏆 PRIZE TIER UNLOCKED</h3>
           <p>
             Much wow. You scored 20 or higher!
@@ -1166,7 +1179,7 @@ reactionImage.classList.remove("hidden");
       resultMessage.textContent = message;
 
 
-      if (score >= 20) {
+      if (score >= 1) {
 
         prizeBox.classList.remove("hidden");
         launchConfetti();
