@@ -1127,6 +1127,10 @@ const continueRoundButton =
   document.getElementById("continueRoundButton");
 const restartButton = document.getElementById("restartButton");
 
+    const roundTitle = document.getElementById("roundTitle");
+const roundMessage = document.getElementById("roundMessage");
+const roundScore = document.getElementById("roundScore");
+
     const questionCounter = document.getElementById("questionCounter");
     const liveScore = document.getElementById("liveScore");
     const progressBar = document.getElementById("progressBar");
@@ -1142,9 +1146,7 @@ const restartButton = document.getElementById("restartButton");
     const resultMessage = document.getElementById("resultMessage");
     const prizeBox = document.getElementById("prizeBox");
 
-const roundTitle = document.getElementById("roundTitle");
-const roundMessage = document.getElementById("roundMessage");
-const roundScore = document.getElementById("roundScore");
+
     function shuffle(array) {
 
       const shuffled = [...array];
@@ -1368,25 +1370,21 @@ function continueRound() {
     behavior: "smooth"
   });
 }
-   function nextQuestion() {
+function nextQuestion() {
 
   currentQuestionIndex++;
 
   if (currentQuestionIndex >= questions.length) {
-
     showResults();
     return;
   }
 
   if (currentQuestionIndex % 5 === 0) {
-
     showRoundBreak();
-
   } else {
-
     showQuestion();
-
   }
+}
 }
 
 
