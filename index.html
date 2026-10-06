@@ -954,7 +954,7 @@
 
     function beginQuiz() {
 
-      questions = shuffle(originalQuestions).map(item => ({
+      questions = shuffle(originalQuestions).slice(0, 2).map(item => ({
         ...item,
         answers: shuffle(item.answers)
       }));
@@ -1179,7 +1179,7 @@ reactionImage.classList.remove("hidden");
       resultMessage.textContent = message;
 
 
-      if (score >= 1) {
+      if (score >= 20) {
 
         prizeBox.classList.remove("hidden");
         launchConfetti();
