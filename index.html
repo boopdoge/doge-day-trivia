@@ -447,6 +447,62 @@
   margin: 0 auto 18px;
   border-radius: 22px;
 }
+    .prize-box {
+  background: linear-gradient(180deg, #fff8dc 0%, #fff0a8 100%);
+  border: 3px solid #111;
+  border-radius: 24px;
+  padding: 24px;
+  margin: 26px 0;
+  text-align: center;
+  box-shadow: 6px 6px 0 #f4a300;
+}
+
+.prize-image {
+  display: block;
+  width: min(320px, 90%);
+  max-height: 300px;
+  object-fit: contain;
+  margin: 0 auto 18px;
+}
+
+.prize-kicker {
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+.prize-title {
+  font-size: clamp(28px, 6vw, 42px);
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+.prize-text {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.screenshot-box {
+  background: #fff;
+  border: 2px dashed #111;
+  border-radius: 15px;
+  padding: 14px;
+  font-weight: 800;
+}
+    .result-logo {
+  display: block;
+  width: min(180px, 60%);
+  max-height: 140px;
+  object-fit: contain;
+  margin: 0 auto 20px;
+}
   </style>
 </head>
 
@@ -551,7 +607,11 @@
       <!-- RESULTS SCREEN -->
       <section id="resultScreen" class="card result hidden">
 
-        <div class="doge-icon">🐕</div>
+       <img
+  src="doge-logo.png"
+  alt="Own The Doge"
+  class="result-logo"
+>
 
         <div class="score-circle">
           <div id="finalScore" class="score-number">0</div>
@@ -562,20 +622,34 @@
 
         <p id="resultMessage" class="result-message"></p>
 
-        <div id="prizeBox" class="prize-box hidden">
-          <img
-  src="doge-prize.png"
-  alt="Doge Day prize"
-  class="prize-image"
->
-          <h3>🏆 PRIZE TIER UNLOCKED</h3>
-          <p>
-            Much wow. You scored 20 or higher!
-          </p>
-          <p>
-            Screenshot this result as proof of your Doge knowledge.
-          </p>
-        </div>
+  
+
+</div>
+         <div id="prizeBox" class="prize-box hidden">
+
+  <img
+    src="doge-prize.png"
+    alt="Doge Day prize"
+    class="prize-image"
+  >
+
+  <div class="prize-kicker">
+    🏆 PRIZE TIER UNLOCKED
+  </div>
+
+  <h3 class="prize-title">
+    Ultimate Doge Day Lore Master
+  </h3>
+
+  <p class="prize-text">
+    Much wow. You scored 20 or higher and unlocked the Doge Day prize tier.
+  </p>
+
+  <div class="screenshot-box">
+    📸 Screenshot this result to claim your achievement.
+  </div>
+
+</div>
 
         <button id="restartButton" class="primary-btn">
           PLAY AGAIN 🔄
