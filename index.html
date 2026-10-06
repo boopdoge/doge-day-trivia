@@ -1310,29 +1310,21 @@ function showRoundBreak() {
   let message = "";
 
   if (completed === 5) {
-
     title = "MUCH START 🐕";
     message =
       "Five questions down. Your Doge knowledge journey is officially underway.";
-
   } else if (completed === 10) {
-
     title = "SUCH KNOWLEDGE ✨";
     message =
       "Ten questions complete. The lore is getting real.";
-
   } else if (completed === 15) {
-
     title = "VERY LORE 🔥";
     message =
       "You're deep in Doge territory now. Ten questions remain.";
-
   } else if (completed === 20) {
-
     title = "FINAL ROUND 👑";
     message =
       "Five questions remain. Ultimate Doge status is within reach.";
-
   }
 
   roundTitle.textContent = title;
@@ -1361,67 +1353,18 @@ function nextQuestion() {
   currentQuestionIndex++;
 
   if (currentQuestionIndex >= questions.length) {
-
     showResults();
     return;
-
   }
 
   if (currentQuestionIndex % 5 === 0) {
-
     showRoundBreak();
-
   } else {
-
     showQuestion();
-
-  }
-}{
-
-  roundScreen.classList.add("hidden");
-  quizScreen.classList.remove("hidden");
-
-  showQuestion();
-}
-
-
-function nextQuestion() {
-
-  currentQuestionIndex++;
-
-  if (currentQuestionIndex >= questions.length) {
-
-    showResults();
-    return;
-
-  }
-
-  if (currentQuestionIndex % 5 === 0) {
-
-    showRoundBreak();
-
-  } else {
-
-    showQuestion();
-
   }
 }
 
-
-
-  currentQuestionIndex++;
-
-  if (currentQuestionIndex >= questions.length) {
-    showResults();
-    return;
-  }
-
-  if (currentQuestionIndex % 5 === 0) {
-    showRoundBreak();
-  } else {
-    showQuestion();
   
-
     function showResults() {
 
       quizScreen.classList.add("hidden");
