@@ -714,27 +714,8 @@
     KEEP GOING →
   </button>
 
-</section><section id="roundScreen" class="card round-screen hidden">
-
-  <div class="round-paw">🐾</div>
-
-  <div class="round-small">
-    ROUND COMPLETE
-  </div>
-
-  <h2 id="roundTitle" class="round-title">
-    Much Progress
-  </h2>
-
-  <p id="roundMessage" class="round-message"></p>
-
-  <div id="roundScore" class="round-score"></div>
-
-  <button id="continueRoundButton" class="primary-btn">
-    KEEP GOING →
-  </button>
-
 </section>
+
       <!-- RESULTS SCREEN -->
       <section id="resultScreen" class="card result hidden">
 
@@ -1318,15 +1299,8 @@ reactionImage.classList.remove("hidden");
         Math.floor(Math.random() * reactions.length)
       ];
     }
-
 function showRoundBreak() {
-function continueRound() {
 
-  roundScreen.classList.add("hidden");
-  quizScreen.classList.remove("hidden");
-
-  showQuestion();
-}
   quizScreen.classList.add("hidden");
   roundScreen.classList.remove("hidden");
 
@@ -1363,14 +1337,48 @@ function continueRound() {
 
   roundTitle.textContent = title;
   roundMessage.textContent = message;
-  roundScore.textContent = `Current score: ${score} / ${completed}`;
+  roundScore.textContent =
+    `Current score: ${score} / ${completed}`;
 
   window.scrollTo({
     top: 0,
     behavior: "smooth"
   });
 }
+
+
+function continueRound() {
+
+  roundScreen.classList.add("hidden");
+  quizScreen.classList.remove("hidden");
+
+  showQuestion();
+}
+
+
 function nextQuestion() {
+
+  currentQuestionIndex++;
+
+  if (currentQuestionIndex >= questions.length) {
+
+    showResults();
+    return;
+
+  }
+
+  if (currentQuestionIndex % 5 === 0) {
+
+    showRoundBreak();
+
+  } else {
+
+    showQuestion();
+
+  }
+}
+
+
 
   currentQuestionIndex++;
 
@@ -1524,7 +1532,7 @@ function nextQuestion() {
     }
 
 
-   startButton.addEventListener("click", beginQuiz);
+startButton.addEventListener("click", beginQuiz);
 
 nextButton.addEventListener("click", nextQuestion);
 
