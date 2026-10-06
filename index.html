@@ -427,6 +427,18 @@
   border-radius: 24px;
   margin: 0 auto 20px;
 }
+    .reaction-image {
+  display: block;
+  width: min(220px, 70%);
+  max-height: 220px;
+  object-fit: contain;
+  margin: 22px auto 10px;
+  border-radius: 20px;
+}
+
+.reaction-image.hidden {
+  display: none;
+}
   </style>
 </head>
 
@@ -513,7 +525,12 @@
         <h2 id="questionText" class="question"></h2>
 
         <div id="answerButtons" class="answers"></div>
-
+<img
+  id="reactionImage"
+  class="reaction-image hidden"
+  src=""
+  alt=""
+>
         <div id="feedbackBox" class="feedback hidden"></div>
 
         <button id="nextButton" class="primary-btn next-btn hidden">
@@ -897,6 +914,7 @@
     const answerButtons = document.getElementById("answerButtons");
 
     const feedbackBox = document.getElementById("feedbackBox");
+    const reactionImage = document.getElementById("reactionImage");
 
     const finalScore = document.getElementById("finalScore");
     const rankTitle = document.getElementById("rankTitle");
@@ -944,8 +962,10 @@
 
       answered = false;
 
-      feedbackBox.classList.add("hidden");
-      nextButton.classList.add("hidden");
+feedbackBox.classList.add("hidden");
+reactionImage.classList.add("hidden");
+reactionImage.src = "";
+nextButton.classList.add("hidden");
 
       const current = questions[currentQuestionIndex];
 
@@ -1009,6 +1029,9 @@
       if (answer === current.correct) {
 
         score++;
+        reactionImage.src = "doge-correct.jpg";
+reactionImage.alt = "Doge celebrating a correct answer";
+reactionImage.classList.remove("hidden");
 
         selectedButton.classList.add("correct");
 
@@ -1019,6 +1042,9 @@
           "feedback correct";
 
       } else {
+        reactionImage.src = "doge-wrong.webp";
+reactionImage.alt = "Doge reacting to a wrong answer";
+reactionImage.classList.remove("hidden");
 
         selectedButton.classList.add("wrong");
 
