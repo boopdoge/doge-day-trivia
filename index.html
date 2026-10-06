@@ -1376,6 +1376,35 @@ function nextQuestion() {
     showQuestion();
 
   }
+}{
+
+  roundScreen.classList.add("hidden");
+  quizScreen.classList.remove("hidden");
+
+  showQuestion();
+}
+
+
+function nextQuestion() {
+
+  currentQuestionIndex++;
+
+  if (currentQuestionIndex >= questions.length) {
+
+    showResults();
+    return;
+
+  }
+
+  if (currentQuestionIndex % 5 === 0) {
+
+    showRoundBreak();
+
+  } else {
+
+    showQuestion();
+
+  }
 }
 
 
@@ -1391,10 +1420,7 @@ function nextQuestion() {
     showRoundBreak();
   } else {
     showQuestion();
-  }
-}
-}
-
+  
 
     function showResults() {
 
