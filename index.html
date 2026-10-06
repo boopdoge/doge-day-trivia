@@ -952,20 +952,23 @@
     }
 
 
-    function beginQuiz() {
+   function beginQuiz() {
 
-      questions = shuffle(originalQuestions).map(item => ({
+  questions = shuffle(originalQuestions).map(item => ({
+    ...item,
+    answers: shuffle(item.answers)
+  }));
 
-      currentQuestionIndex = 0;
-      score = 0;
-      answered = false;
+  currentQuestionIndex = 0;
+  score = 0;
+  answered = false;
 
-      startScreen.classList.add("hidden");
-      resultScreen.classList.add("hidden");
-      quizScreen.classList.remove("hidden");
+  startScreen.classList.add("hidden");
+  resultScreen.classList.add("hidden");
+  quizScreen.classList.remove("hidden");
 
-      showQuestion();
-    }
+  showQuestion();
+}
 
 
     function showQuestion() {
