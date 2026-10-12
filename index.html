@@ -832,21 +832,10 @@
 
         <div class="quiz-header">
 
-          <div class="question-count">
-            <span id="questionCounter">Question 1 of 25</span>
-            <span id="liveScore">Score: 0</span>
-          </div>
-
-          <div class="power-meter-shell">
-
-  <div id="powerMeter" class="power-meter"></div>
-
-  <div class="prize-marker" aria-label="Prize threshold at 20 out of 25">
-    🏆
-  </div>
-
+       <div class="progress-shell">
+  <div id="progressBar" class="progress"></div>
 </div>
-          
+
 <div class="power-meter-wrap">
 
   <div class="power-meter-label">
@@ -855,7 +844,16 @@
   </div>
 
   <div class="power-meter-shell">
+
     <div id="powerMeter" class="power-meter"></div>
+
+    <div
+      class="prize-marker"
+      aria-label="Prize threshold at 20 out of 25"
+    >
+      🏆
+    </div>
+
   </div>
 
   <div id="powerMessage" class="power-message">
@@ -863,7 +861,6 @@
   </div>
 
 </div>
-        </div>
 
         <div class="question-label">
           DOGE KNOWLEDGE CHECK
@@ -876,11 +873,7 @@
           class="streak-box hidden"
           aria-live="polite"
         ></div>
-<div
-  id="levelUpBox"
-  class="level-up-box hidden"
-  aria-live="polite"
-></div>
+
         <div id="answerButtons" class="answers"></div>
 
         <img
@@ -1630,7 +1623,7 @@ const powerMessage =
       score = 0;
       streak = 0;
       roundScoreCount = 0;
-      function checkLevelUp() {
+  
   let message = "";
 
   if (score === 5) {
@@ -1749,7 +1742,7 @@ roundScoreCount++;
 
 showStreak();
 updateDogePower();
-checkLevelUp();
+
         reactionImage.src =
           "doge-correct.jpg";
 
@@ -1769,10 +1762,6 @@ checkLevelUp();
       } else {
 
         streak = 0;
-
-        streakBox.classList.add("hidden");
-
-levelUpBox.classList.add("hidden");
         
         reactionImage.alt =
           "Doge reacting to a wrong answer";
@@ -1843,6 +1832,11 @@ function updateDogePower() {
   powerMessage.textContent =
     "💥 MAXIMUM DOGE ACHIEVED";
 
+  }
+}
+
+function showStreak() {
+
 }
     function showStreak() {
 
@@ -1882,11 +1876,7 @@ function updateDogePower() {
       streakBox.classList.remove("hidden");
     }
 
-<div
-  id="levelUpBox"
-  class="level-up-box hidden"
-  aria-live="polite"
-></div>
+
     function getCorrectReaction() {
 
       const reactions = [
