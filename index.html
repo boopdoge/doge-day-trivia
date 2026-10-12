@@ -563,6 +563,72 @@
         animation: none !important;
       }
     }
+    .share-card {
+  margin: 26px auto;
+  padding: 26px 20px;
+  max-width: 500px;
+  background:
+    linear-gradient(180deg, #fff7d6 0%, #ffffff 100%);
+  border: 4px solid #111;
+  border-radius: 26px;
+  text-align: center;
+  box-shadow: 7px 7px 0 #f4a300;
+}
+
+.share-card-top {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #666;
+  margin-bottom: 14px;
+}
+
+.share-card-logo {
+  display: block;
+  width: min(140px, 45%);
+  max-height: 110px;
+  object-fit: contain;
+  margin: 0 auto 16px;
+}
+
+.share-card-label {
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.share-score {
+  font-size: clamp(52px, 12vw, 82px);
+  font-weight: 900;
+  line-height: 1;
+  margin: 10px 0;
+  color: #f4a300;
+  text-shadow:
+    -2px -2px 0 #111,
+     2px -2px 0 #111,
+    -2px  2px 0 #111,
+     2px  2px 0 #111;
+}
+
+.share-rank {
+  font-size: clamp(22px, 5vw, 32px);
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.share-handle {
+  font-size: 16px;
+  font-weight: 800;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.share-tagline {
+  border-top: 2px solid #eee;
+  padding-top: 14px;
+  font-weight: 800;
+  font-style: italic;
+}
   </style>
 </head>
 
@@ -745,7 +811,35 @@
           id="resultMessage"
           class="result-message"
         ></p>
+<div id="shareCard" class="share-card">
 
+  <div class="share-card-top">
+    DOGE DAY 2026
+  </div>
+
+  <img
+    src="doge-logo.png"
+    alt="Own The Doge"
+    class="share-card-logo"
+  >
+
+  <div class="share-card-label">
+    MY DOGE LORE SCORE
+  </div>
+
+  <div id="shareScore" class="share-score">
+    0 / 25
+  </div>
+
+  <div id="shareRank" class="share-rank">
+    DOGE HISTORIAN
+  </div>
+
+  <div id="shareHandle" class="share-handle"></div>
+
+  <div class="share-tagline">
+    much knowledge. very lore.
+  </div>
         <div
           id="perfectScoreBox"
           class="perfect-score-box hidden"
@@ -1322,7 +1416,18 @@
 
     const perfectScoreBox =
       document.getElementById("perfectScoreBox");
+    
+const shareScore =
+  document.getElementById("shareScore");
 
+const shareRank =
+  document.getElementById("shareRank");
+
+const shareHandle =
+  document.getElementById("shareHandle");
+
+const playerHandle =
+  document.getElementById("playerHandle");
     const roundTitle =
       document.getElementById("roundTitle");
 
@@ -1786,7 +1891,17 @@
 
       resultMessage.textContent =
         message;
+shareScore.textContent =
+  `${score} / 25`;
 
+shareRank.textContent =
+  rank.replace(/^[^\s]+\s/, "");
+
+const enteredHandle =
+  playerHandle.value.trim();
+
+shareHandle.textContent =
+  enteredHandle ? enteredHandle : "Doge community player";
 
       if (score >= 20) {
 
