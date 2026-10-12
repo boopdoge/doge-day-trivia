@@ -228,7 +228,34 @@
       text-align: center;
       animation: streakPop 0.3s ease;
     }
+.level-up-box {
+  margin: 0 auto 18px;
+  padding: 16px 20px;
+  background: #fff3bf;
+  border: 3px solid #111;
+  border-radius: 18px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 18px;
+  box-shadow: 4px 4px 0 #f4a300;
+  animation: levelPop 0.35s ease;
+}
 
+@keyframes levelPop {
+  0% {
+    transform: scale(0.75);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
     @keyframes streakPop {
       0% {
         transform: scale(0.85);
@@ -241,7 +268,34 @@
         transform: scale(1);
         opacity: 1;
       }
-    }
+    }.level-up-box {
+  margin: 0 auto 18px;
+  padding: 16px 20px;
+  background: #fff3bf;
+  border: 3px solid #111;
+  border-radius: 18px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 18px;
+  box-shadow: 4px 4px 0 #f4a300;
+  animation: levelPop 0.35s ease;
+}
+
+@keyframes levelPop {
+  0% {
+    transform: scale(0.75);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
     .answers {
       display: grid;
@@ -822,7 +876,11 @@
           class="streak-box hidden"
           aria-live="polite"
         ></div>
-
+<div
+  id="levelUpBox"
+  class="level-up-box hidden"
+  aria-live="polite"
+></div>
         <div id="answerButtons" class="answers"></div>
 
         <img
@@ -1572,6 +1630,24 @@ const powerMessage =
       score = 0;
       streak = 0;
       roundScoreCount = 0;
+      function checkLevelUp() {
+  let message = "";
+
+  if (score === 5) {
+    message = "🐾 LEVEL UP — DOGE KNOWLEDGE AWAKENED!";
+  } else if (score === 10) {
+    message = "✨ LEVEL UP — MUCH KNOWLEDGE!";
+  } else if (score === 15) {
+    message = "🔥 LEVEL UP — VERY LORE!";
+  } else if (score === 20) {
+    message = "🏆 PRIZE TIER UNLOCKED!";
+  }
+
+  if (message) {
+    levelUpBox.textContent = message;
+    levelUpBox.classList.remove("hidden");
+  }
+}
       updateDogePower();
       answered = false;
 
@@ -1673,7 +1749,7 @@ roundScoreCount++;
 
 showStreak();
 updateDogePower();
-
+checkLevelUp();
         reactionImage.src =
           "doge-correct.jpg";
 
@@ -1696,9 +1772,8 @@ updateDogePower();
 
         streakBox.classList.add("hidden");
 
-        reactionImage.src =
-          "doge-wrong.webp";
-
+levelUpBox.classList.add("hidden");
+        
         reactionImage.alt =
           "Doge reacting to a wrong answer";
 
@@ -1753,17 +1828,21 @@ function updateDogePower() {
     powerMessage.textContent =
       "🚀 VERY POWERFUL DOGE";
 
-  } else if (score < 25) {
+} else if (score === 20) {
 
-    powerMessage.textContent =
-      "👑 LEGENDARY DOGE ENERGY";
+  powerMessage.textContent =
+    "🏆 PRIZE TIER UNLOCKED!";
 
-  } else {
+} else if (score < 25) {
 
-    powerMessage.textContent =
-      "💥 MAXIMUM DOGE ACHIEVED";
+  powerMessage.textContent =
+    "👑 LEGENDARY DOGE ENERGY";
 
-  }
+} else {
+
+  powerMessage.textContent =
+    "💥 MAXIMUM DOGE ACHIEVED";
+
 }
     function showStreak() {
 
@@ -1803,7 +1882,11 @@ function updateDogePower() {
       streakBox.classList.remove("hidden");
     }
 
-
+<div
+  id="levelUpBox"
+  class="level-up-box hidden"
+  aria-live="polite"
+></div>
     function getCorrectReaction() {
 
       const reactions = [
