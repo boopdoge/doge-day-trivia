@@ -319,7 +319,9 @@
     .next-btn {
       margin-top: 16px;
     }
-
+#shareScoreButton {
+  margin-bottom: 14px;
+}
     .round-screen {
       text-align: center;
     }
@@ -995,7 +997,14 @@
           </div>
 
         </div>
-
+<button
+  id="shareScoreButton"
+  class="primary-btn"
+  type="button"
+>
+  COPY MY SCORE 📋
+</button>
+        
         <button
           id="restartButton"
           class="primary-btn"
@@ -1495,6 +1504,8 @@
     const restartButton =
       document.getElementById("restartButton");
 
+    const shareScoreButton =
+  document.getElementById("shareScoreButton");
 
     const questionCounter =
       document.getElementById("questionCounter");
@@ -2178,7 +2189,33 @@ shareHandle.textContent =
       }
     }
 
+function copyScore() {
 
+  const enteredHandle =
+    playerHandle.value.trim();
+
+  let shareText =
+    `I scored ${score}/25 on Ultimate Doge Day Lore 🐕`;
+
+  if (enteredHandle) {
+    shareText += ` — ${enteredHandle}`;
+  }
+
+  navigator.clipboard.writeText(shareText)
+    .then(() => {
+      shareScoreButton.textContent =
+        "COPIED! ✅";
+
+      setTimeout(() => {
+        shareScoreButton.textContent =
+          "COPY MY SCORE 📋";
+      }, 1800);
+    })
+    .catch(() => {
+      shareScoreButton.textContent =
+        "COPY FAILED";
+    });
+}
     function restartQuiz() {
 
       resultScreen.classList.add("hidden");
@@ -2214,7 +2251,11 @@ shareHandle.textContent =
       "click",
       continueRound
     );
-
+    
+shareScoreButton.addEventListener(
+  "click",
+  copyScore
+);
     restartButton.addEventListener(
       "click",
       restartQuiz
