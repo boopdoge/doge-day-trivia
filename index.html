@@ -629,8 +629,9 @@
   font-weight: 800;
   font-style: italic;
 }
-    .power-meter-wrap {
+ .power-meter-wrap {
   margin-top: 18px;
+  margin-bottom: 14px;
   padding: 14px 16px;
   background: #fff8dc;
   border: 2px solid #efc047;
@@ -647,28 +648,51 @@
 }
 
 .power-meter-shell {
+  position: relative;
   width: 100%;
   height: 18px;
   background: #fff;
   border: 2px solid #111;
   border-radius: 999px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .power-meter {
   width: 0%;
   height: 100%;
-  background:
-    linear-gradient(
-      90deg,
-      #f4a300,
-      #ffd24d
-    );
+  background: linear-gradient(
+    90deg,
+    #f4a300,
+    #ffd24d
+  );
+  border-radius: 999px;
   transition: width 0.4s ease;
 }
 
+.prize-marker {
+  position: absolute;
+  left: 80%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  line-height: 1;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.prize-marker::after {
+  content: "20";
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 900;
+  color: #777;
+}
+
 .power-message {
-  margin-top: 8px;
+  margin-top: 12px;
   text-align: center;
   font-size: 13px;
   font-weight: 800;
@@ -759,9 +783,15 @@
             <span id="liveScore">Score: 0</span>
           </div>
 
-          <div class="progress-shell">
-            <div id="progressBar" class="progress"></div>
-          </div>
+          <div class="power-meter-shell">
+
+  <div id="powerMeter" class="power-meter"></div>
+
+  <div class="prize-marker" aria-label="Prize threshold at 20 out of 25">
+    🏆
+  </div>
+
+</div>
           
 <div class="power-meter-wrap">
 
