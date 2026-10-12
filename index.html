@@ -860,14 +860,14 @@
   </div>
 
   <div id="powerMessage" class="power-message">
-    Doge energy loading...
-  </div>
+  Doge energy loading...
+</div>
 
 </div>
 
-        <div class="question-label">
-          DOGE KNOWLEDGE CHECK
-        </div>
+</div>
+
+<div class="question-label">
 
         <h2 id="questionText" class="question"></h2>
 
@@ -1636,16 +1636,7 @@ function beginQuiz() {
   showQuestion();
 }
 
-      updateDogePower();
-      answered = false;
 
-      startScreen.classList.add("hidden");
-      roundScreen.classList.add("hidden");
-      resultScreen.classList.add("hidden");
-      quizScreen.classList.remove("hidden");
-
-      showQuestion();
-    }
 
 
     function showQuestion() {
@@ -1826,12 +1817,10 @@ function updateDogePower() {
 
     powerMessage.textContent =
       "💥 MAXIMUM DOGE ACHIEVED";
-
   }
 }
 
-}
-    function showStreak() {
+function showStreak() {
 
       if (streak < 2) {
 
