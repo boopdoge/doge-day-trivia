@@ -831,7 +831,10 @@
       <section id="quizScreen" class="card hidden">
 
         <div class="quiz-header">
-
+<div class="question-count">
+  <span id="questionCounter">Question 1 of 25</span>
+  <span id="liveScore">Score: 0</span>
+</div>
        <div class="progress-shell">
   <div id="progressBar" class="progress"></div>
 </div>
@@ -1607,40 +1610,32 @@ const powerMessage =
 
       return shuffled;
     }
+function beginQuiz() {
 
+  questions =
+    shuffle(questionBank)
+      .slice(0, QUESTION_COUNT)
+      .map(item => ({
+        ...item,
+        answers: shuffle(item.answers)
+      }));
 
-    function beginQuiz() {
+  currentQuestionIndex = 0;
+  score = 0;
+  streak = 0;
+  roundScoreCount = 0;
+  answered = false;
 
-      questions =
-        shuffle(questionBank)
-          .slice(0, QUESTION_COUNT)
-          .map(item => ({
-            ...item,
-            answers: shuffle(item.answers)
-          }));
+  updateDogePower();
 
-      currentQuestionIndex = 0;
-      score = 0;
-      streak = 0;
-      roundScoreCount = 0;
-  
-  let message = "";
+  startScreen.classList.add("hidden");
+  roundScreen.classList.add("hidden");
+  resultScreen.classList.add("hidden");
+  quizScreen.classList.remove("hidden");
 
-  if (score === 5) {
-    message = "🐾 LEVEL UP — DOGE KNOWLEDGE AWAKENED!";
-  } else if (score === 10) {
-    message = "✨ LEVEL UP — MUCH KNOWLEDGE!";
-  } else if (score === 15) {
-    message = "🔥 LEVEL UP — VERY LORE!";
-  } else if (score === 20) {
-    message = "🏆 PRIZE TIER UNLOCKED!";
-  }
-
-  if (message) {
-    levelUpBox.textContent = message;
-    levelUpBox.classList.remove("hidden");
-  }
+  showQuestion();
 }
+
       updateDogePower();
       answered = false;
 
@@ -1817,20 +1812,20 @@ function updateDogePower() {
     powerMessage.textContent =
       "🚀 VERY POWERFUL DOGE";
 
-} else if (score === 20) {
+  } else if (score === 20) {
 
-  powerMessage.textContent =
-    "🏆 PRIZE TIER UNLOCKED!";
+    powerMessage.textContent =
+      "🏆 PRIZE TIER UNLOCKED!";
 
-} else if (score < 25) {
+  } else if (score < 25) {
 
-  powerMessage.textContent =
-    "👑 LEGENDARY DOGE ENERGY";
+    powerMessage.textContent =
+      "👑 LEGENDARY DOGE ENERGY";
 
-} else {
+  } else {
 
-  powerMessage.textContent =
-    "💥 MAXIMUM DOGE ACHIEVED";
+    powerMessage.textContent =
+      "💥 MAXIMUM DOGE ACHIEVED";
 
   }
 }
