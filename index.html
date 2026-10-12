@@ -629,6 +629,51 @@
   font-weight: 800;
   font-style: italic;
 }
+    .power-meter-wrap {
+  margin-top: 18px;
+  padding: 14px 16px;
+  background: #fff8dc;
+  border: 2px solid #efc047;
+  border-radius: 16px;
+}
+
+.power-meter-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.power-meter-shell {
+  width: 100%;
+  height: 18px;
+  background: #fff;
+  border: 2px solid #111;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.power-meter {
+  width: 0%;
+  height: 100%;
+  background:
+    linear-gradient(
+      90deg,
+      #f4a300,
+      #ffd24d
+    );
+  transition: width 0.4s ease;
+}
+
+.power-message {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 800;
+  color: #666;
+}
   </style>
 </head>
 
@@ -717,7 +762,23 @@
           <div class="progress-shell">
             <div id="progressBar" class="progress"></div>
           </div>
+          
+<div class="power-meter-wrap">
 
+  <div class="power-meter-label">
+    <span>🐕 DOGE POWER</span>
+    <span id="powerText">0 / 25</span>
+  </div>
+
+  <div class="power-meter-shell">
+    <div id="powerMeter" class="power-meter"></div>
+  </div>
+
+  <div id="powerMessage" class="power-message">
+    Doge energy loading...
+  </div>
+
+</div>
         </div>
 
         <div class="question-label">
@@ -1440,6 +1501,14 @@ const playerHandle =
     const roundPerformance =
       document.getElementById("roundPerformance");
 
+    const powerMeter =
+  document.getElementById("powerMeter");
+
+const powerText =
+  document.getElementById("powerText");
+
+const powerMessage =
+  document.getElementById("powerMessage");
 
     function shuffle(array) {
 
@@ -1473,6 +1542,7 @@ const playerHandle =
       score = 0;
       streak = 0;
       roundScoreCount = 0;
+      updateDogePower();
       answered = false;
 
       startScreen.classList.add("hidden");
@@ -1567,11 +1637,12 @@ const playerHandle =
 
       if (answer === current.correct) {
 
-        score++;
-        streak++;
-        roundScoreCount++;
+       score++;
+streak++;
+roundScoreCount++;
 
-        showStreak();
+showStreak();
+updateDogePower();
 
         reactionImage.src =
           "doge-correct.jpg";
@@ -1621,7 +1692,49 @@ const playerHandle =
       nextButton.classList.remove("hidden");
     }
 
+function updateDogePower() {
 
+  const percentage =
+    (score / QUESTION_COUNT) * 100;
+
+  powerMeter.style.width =
+    `${percentage}%`;
+
+  powerText.textContent =
+    `${score} / ${QUESTION_COUNT}`;
+
+  if (score < 5) {
+
+    powerMessage.textContent =
+      "🐾 Doge energy loading...";
+
+  } else if (score < 10) {
+
+    powerMessage.textContent =
+      "✨ Much power building!";
+
+  } else if (score < 15) {
+
+    powerMessage.textContent =
+      "🔥 Doge knowledge activated!";
+
+  } else if (score < 20) {
+
+    powerMessage.textContent =
+      "🚀 VERY POWERFUL DOGE";
+
+  } else if (score < 25) {
+
+    powerMessage.textContent =
+      "👑 LEGENDARY DOGE ENERGY";
+
+  } else {
+
+    powerMessage.textContent =
+      "💥 MAXIMUM DOGE ACHIEVED";
+
+  }
+}
     function showStreak() {
 
       if (streak < 2) {
