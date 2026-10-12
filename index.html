@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Doge Day Trivia | Own The Doge</title>
+  <title>Ultimate Doge Day Lore | Own The Doge</title>
 
   <style>
     * {
@@ -22,18 +22,32 @@
 
     .page {
       width: 100%;
-      padding: 30px 16px 60px;
+      padding: 28px 16px 60px;
     }
 
     .game {
       width: 100%;
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto;
+    }
+
+    .hidden {
+      display: none !important;
     }
 
     .top-brand {
       text-align: center;
       margin-bottom: 20px;
+    }
+
+    .dogeday-banner {
+      display: block;
+      width: 100%;
+      max-height: 260px;
+      object-fit: cover;
+      border: 3px solid #111;
+      border-radius: 24px;
+      margin: 0 auto 20px;
     }
 
     .brand-small {
@@ -45,7 +59,7 @@
     }
 
     .brand-title {
-      margin: 8px 0 0;
+      margin-top: 8px;
       font-size: clamp(34px, 7vw, 64px);
       line-height: 0.95;
       font-weight: 900;
@@ -56,34 +70,20 @@
     }
 
     .card {
-      background: white;
+      background: #fff;
       border: 3px solid #111;
       border-radius: 28px;
-      padding: 32px;
+      padding: 30px;
       box-shadow: 8px 8px 0 #f4a300;
     }
 
-    .hidden {
-      display: none;
-    }
-
-    .doge-icon {
-      width: 88px;
-      height: 88px;
-      margin: 0 auto 16px;
-      border-radius: 50%;
-      background: #f4a300;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
-      border: 3px solid #111;
-    }
-
-    h1,
-    h2,
-    h3 {
-      margin-top: 0;
+    .start-doge {
+      display: block;
+      width: min(280px, 80%);
+      max-height: 280px;
+      object-fit: contain;
+      margin: 0 auto 18px;
+      border-radius: 22px;
     }
 
     .start-title {
@@ -98,7 +98,7 @@
       color: #555;
       font-size: 18px;
       line-height: 1.5;
-      max-width: 560px;
+      max-width: 580px;
       margin: 0 auto 24px;
     }
 
@@ -112,7 +112,7 @@
     }
 
     .rules strong {
-      color: #b66e00;
+      color: #9d6200;
     }
 
     .handle-wrap {
@@ -168,13 +168,14 @@
     }
 
     .quiz-header {
-      margin-bottom: 25px;
+      margin-bottom: 24px;
     }
 
     .question-count {
       display: flex;
       justify-content: space-between;
-      gap: 15px;
+      gap: 12px;
+      flex-wrap: wrap;
       font-weight: 800;
       margin-bottom: 10px;
       font-size: 14px;
@@ -199,7 +200,7 @@
     .question-label {
       display: inline-block;
       background: #111;
-      color: white;
+      color: #fff;
       border-radius: 999px;
       padding: 7px 12px;
       font-size: 13px;
@@ -210,7 +211,36 @@
     .question {
       font-size: clamp(23px, 5vw, 32px);
       line-height: 1.2;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+    }
+
+    .streak-box {
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 auto 18px;
+      padding: 10px 16px;
+      background: #111;
+      color: #fff;
+      border: 2px solid #f4a300;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 15px;
+      text-align: center;
+      animation: streakPop 0.3s ease;
+    }
+
+    @keyframes streakPop {
+      0% {
+        transform: scale(0.85);
+        opacity: 0;
+      }
+      70% {
+        transform: scale(1.06);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     .answers {
@@ -222,7 +252,7 @@
       width: 100%;
       min-height: 58px;
       padding: 14px 16px;
-      background: white;
+      background: #fff;
       color: #111;
       border: 2px solid #bbb;
       border-radius: 15px;
@@ -256,8 +286,17 @@
       cursor: default;
     }
 
+    .reaction-image {
+      display: block;
+      width: min(220px, 70%);
+      max-height: 220px;
+      object-fit: contain;
+      margin: 22px auto 10px;
+      border-radius: 20px;
+    }
+
     .feedback {
-      margin-top: 22px;
+      margin-top: 18px;
       padding: 18px;
       border-radius: 17px;
       font-weight: 800;
@@ -279,8 +318,74 @@
       margin-top: 16px;
     }
 
+    .round-screen {
+      text-align: center;
+    }
+
+    .round-paw {
+      font-size: 64px;
+      margin-bottom: 10px;
+    }
+
+    .round-small {
+      display: inline-block;
+      background: #111;
+      color: #fff;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      margin-bottom: 18px;
+    }
+
+    .round-title {
+      font-size: clamp(34px, 7vw, 52px);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .round-message {
+      font-size: 18px;
+      color: #555;
+      line-height: 1.5;
+      max-width: 520px;
+      margin: 0 auto 20px;
+    }
+
+    .round-score {
+      display: inline-block;
+      background: #fff6d7;
+      border: 2px solid #111;
+      border-radius: 16px;
+      padding: 12px 20px;
+      font-weight: 900;
+      font-size: 20px;
+      margin-bottom: 18px;
+    }
+
+    .round-performance {
+      margin: 0 auto 22px;
+      max-width: 520px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: #fff;
+      border: 2px dashed #f4a300;
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.4;
+    }
+
     .result {
       text-align: center;
+    }
+
+    .result-logo {
+      display: block;
+      width: min(180px, 60%);
+      max-height: 140px;
+      object-fit: contain;
+      margin: 0 auto 20px;
     }
 
     .score-circle {
@@ -323,17 +428,66 @@
       margin: 0 auto 20px;
     }
 
-    .prize-box {
-      background: #fff3bf;
-      border: 3px dashed #f4a300;
-      border-radius: 18px;
-      padding: 18px;
+    .perfect-score-box {
+      background: #111;
+      color: #fff;
+      border: 3px solid #f4a300;
+      border-radius: 22px;
+      padding: 22px;
       margin: 24px 0;
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1.4;
     }
 
-    .prize-box h3 {
-      margin-bottom: 5px;
-      font-size: 24px;
+    .prize-box {
+      background: linear-gradient(180deg, #fff8dc 0%, #fff0a8 100%);
+      border: 3px solid #111;
+      border-radius: 24px;
+      padding: 24px;
+      margin: 26px 0;
+      text-align: center;
+      box-shadow: 6px 6px 0 #f4a300;
+    }
+
+    .prize-image {
+      display: block;
+      width: min(320px, 90%);
+      max-height: 300px;
+      object-fit: contain;
+      margin: 0 auto 18px;
+    }
+
+    .prize-kicker {
+      display: inline-block;
+      background: #111;
+      color: #fff;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .prize-title {
+      font-size: clamp(28px, 6vw, 42px);
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+
+    .prize-text {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .screenshot-box {
+      background: #fff;
+      border: 2px dashed #111;
+      border-radius: 15px;
+      padding: 14px;
+      font-weight: 800;
     }
 
     .share-note {
@@ -409,224 +563,6 @@
         animation: none !important;
       }
     }
-    .start-doge {
-  display: block;
-  width: min(280px, 80%);
-  max-height: 280px;
-  object-fit: contain;
-  margin: 0 auto 20px;
-  border-radius: 22px;
-}
-
-    .dogeday-banner {
-  display: block;
-  width: 100%;
-  max-height: 260px;
-  object-fit: cover;
-  border: 3px solid #111;
-  border-radius: 24px;
-  margin: 0 auto 20px;
-}
-    .reaction-image {
-  display: block;
-  width: min(220px, 70%);
-  max-height: 220px;
-  object-fit: contain;
-  margin: 22px auto 10px;
-  border-radius: 20px;
-}
-
-.reaction-image.hidden {
-  display: none;
-}
-.prize-image {
-  display: block;
-  width: min(300px, 85%);
-  max-height: 260px;
-  object-fit: contain;
-  margin: 0 auto 18px;
-  border-radius: 22px;
-}
-    .prize-box {
-  background: linear-gradient(180deg, #fff8dc 0%, #fff0a8 100%);
-  border: 3px solid #111;
-  border-radius: 24px;
-  padding: 24px;
-  margin: 26px 0;
-  text-align: center;
-  box-shadow: 6px 6px 0 #f4a300;
-}
-
-.prize-image {
-  display: block;
-  width: min(320px, 90%);
-  max-height: 300px;
-  object-fit: contain;
-  margin: 0 auto 18px;
-}
-
-.prize-kicker {
-  display: inline-block;
-  background: #111;
-  color: #fff;
-  border-radius: 999px;
-  padding: 8px 14px;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 1px;
-  margin-bottom: 14px;
-}
-
-.prize-title {
-  font-size: clamp(28px, 6vw, 42px);
-  line-height: 1.05;
-  margin-bottom: 12px;
-}
-
-.prize-text {
-  font-size: 18px;
-  line-height: 1.5;
-  margin-bottom: 18px;
-}
-
-.screenshot-box {
-  background: #fff;
-  border: 2px dashed #111;
-  border-radius: 15px;
-  padding: 14px;
-  font-weight: 800;
-}
-    .result-logo {
-  display: block;
-  width: min(180px, 60%);
-  max-height: 140px;
-  object-fit: contain;
-  margin: 0 auto 20px;
-}
-    .round-screen {
-  text-align: center;
-}
-
-.round-paw {
-  font-size: 64px;
-  margin-bottom: 10px;
-}
-
-.round-small {
-  display: inline-block;
-  background: #111;
-  color: #fff;
-  border-radius: 999px;
-  padding: 8px 14px;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 1.5px;
-  margin-bottom: 18px;
-}
-
-.round-title {
-  font-size: clamp(34px, 7vw, 52px);
-  line-height: 1;
-  margin-bottom: 14px;
-}
-
-.round-message {
-  font-size: 18px;
-  color: #555;
-  line-height: 1.5;
-  max-width: 520px;
-  margin: 0 auto 20px;
-}
-
-.round-score {
-  display: inline-block;
-  background: #fff6d7;
-  border: 2px solid #111;
-  border-radius: 16px;
-  padding: 12px 20px;
-  font-weight: 900;
-  font-size: 20px;
-  margin-bottom: 24px;
-}
-    .round-screen {
-  text-align: center;
-}
-
-.round-paw {
-  font-size: 64px;
-  margin-bottom: 10px;
-}
-
-.round-small {
-  display: inline-block;
-  background: #111;
-  color: #fff;
-  border-radius: 999px;
-  padding: 8px 14px;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 1.5px;
-  margin-bottom: 18px;
-}
-
-.round-title {
-  font-size: clamp(34px, 7vw, 52px);
-  line-height: 1;
-  margin-bottom: 14px;
-}
-
-.round-message {
-  font-size: 18px;
-  color: #555;
-  line-height: 1.5;
-  max-width: 520px;
-  margin: 0 auto 20px;
-}
-
-.round-score {
-  display: inline-block;
-  background: #fff6d7;
-  border: 2px solid #111;
-  border-radius: 16px;
-  padding: 12px 20px;
-  font-weight: 900;
-  font-size: 20px;
-  margin-bottom: 24px;
-}
-    .streak-box {
-  width: fit-content;
-  max-width: 100%;
-  margin: 0 auto 18px;
-  padding: 10px 16px;
-  background: #111;
-  color: #fff;
-  border: 2px solid #f4a300;
-  border-radius: 999px;
-  font-weight: 900;
-  font-size: 15px;
-  text-align: center;
-  animation: streakPop 0.3s ease;
-}
-
-.streak-box.hidden {
-  display: none;
-}
-
-@keyframes streakPop {
-  0% {
-    transform: scale(0.85);
-    opacity: 0;
-  }
-
-  70% {
-    transform: scale(1.06);
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
   </style>
 </head>
 
@@ -637,34 +573,36 @@
 
       <div class="top-brand">
 
-  <img
-    src="dogeday-banner.jpg"
-    alt="Doge Day"
-    class="dogeday-banner"
-  >
+        <img
+          src="dogeday-banner.jpg"
+          alt="Doge Day"
+          class="dogeday-banner"
+        >
 
-  <div class="brand-small">Own The Doge Presents</div>
+        <div class="brand-small">Own The Doge Presents</div>
 
-  <div class="brand-title">
-    <span>DOGE DAY</span> TRIVIA
-  </div>
+        <div class="brand-title">
+          <span>ULTIMATE DOGE DAY</span> LORE
+        </div>
 
- </div>
+      </div>
 
       <!-- START SCREEN -->
       <section id="startScreen" class="card">
 
         <img
-  src="doge-start.gif"
-  alt="Doge"
-  class="start-doge"
->
+          src="doge-start.gif"
+          alt="Doge"
+          class="start-doge"
+        >
 
-        <h1 class="start-title">How well do you know Doge?</h1>
+        <h1 class="start-title">
+          How deep does your Doge lore go?
+        </h1>
 
         <p class="subtitle">
-          25 questions. Doge history, Kabosu lore, Shiba knowledge
-          and a few surprises.
+          Every game pulls 25 random questions from a 37-question
+          Doge Day knowledge bank.
         </p>
 
         <div class="rules">
@@ -672,13 +610,19 @@
           Score at least <strong>20 out of 25</strong> to unlock the
           Doge Day prize tier.
           <br><br>
-          Questions and answers will be shuffled each time.
+          Questions and answers shuffle every game.
           <br><br>
-          No Googling. Much honor. Very trivia.
+          Build streaks, crush your rounds, and see if you can score
+          a perfect 25/25.
+          <br><br>
+          No Googling. Much honor. Very lore.
         </div>
 
         <div class="handle-wrap">
-          <label for="playerHandle">Your X or Telegram handle</label>
+          <label for="playerHandle">
+            Your X or Telegram handle
+          </label>
+
           <input
             id="playerHandle"
             type="text"
@@ -687,7 +631,7 @@
           >
         </div>
 
-        <button id="startButton" class="primary-btn">
+        <button id="startButton" class="primary-btn" type="button">
           START THE CHALLENGE 🐾
         </button>
 
@@ -710,60 +654,85 @@
 
         </div>
 
-        <div class="question-label">DOGE KNOWLEDGE CHECK</div>
+        <div class="question-label">
+          DOGE KNOWLEDGE CHECK
+        </div>
 
         <h2 id="questionText" class="question"></h2>
-<div
-  id="streakBox"
-  class="streak-box hidden"
-  aria-live="polite"
-></div>
-        <div id="answerButtons" class="answers"></div>
-<img
-  id="reactionImage"
-  class="reaction-image hidden"
-  src=""
-  alt=""
->
-        <div id="feedbackBox" class="feedback hidden"></div>
 
-        <button id="nextButton" class="primary-btn next-btn hidden">
+        <div
+          id="streakBox"
+          class="streak-box hidden"
+          aria-live="polite"
+        ></div>
+
+        <div id="answerButtons" class="answers"></div>
+
+        <img
+          id="reactionImage"
+          class="reaction-image hidden"
+          src=""
+          alt=""
+        >
+
+        <div
+          id="feedbackBox"
+          class="feedback hidden"
+          aria-live="polite"
+        ></div>
+
+        <button
+          id="nextButton"
+          class="primary-btn next-btn hidden"
+          type="button"
+        >
           NEXT QUESTION →
         </button>
 
       </section>
 
-<!-- ROUND BREAK SCREEN -->
-<section id="roundScreen" class="card round-screen hidden">
 
-  <div class="round-paw">🐾</div>
+      <!-- ROUND BREAK SCREEN -->
+      <section id="roundScreen" class="card round-screen hidden">
 
-  <div class="round-small">
-    ROUND COMPLETE
-  </div>
+        <div class="round-paw">🐾</div>
 
-  <h2 id="roundTitle" class="round-title">
-    Much Progress
-  </h2>
+        <div class="round-small">
+          ROUND COMPLETE
+        </div>
 
-  <p id="roundMessage" class="round-message"></p>
+        <h2 id="roundTitle" class="round-title">
+          Much Progress
+        </h2>
 
-  <div id="roundScore" class="round-score"></div>
+        <p id="roundMessage" class="round-message"></p>
 
-  <button id="continueRoundButton" class="primary-btn">
-    KEEP GOING →
-  </button>
+        <div id="roundScore" class="round-score"></div>
 
-</section>
+        <div
+          id="roundPerformance"
+          class="round-performance"
+        ></div>
+
+        <button
+          id="continueRoundButton"
+          class="primary-btn"
+          type="button"
+        >
+          KEEP GOING →
+        </button>
+
+      </section>
+
 
       <!-- RESULTS SCREEN -->
       <section id="resultScreen" class="card result hidden">
 
-       <img
-  src="doge-logo.png"
-  alt="Own The Doge"
-  class="result-logo"
->
+        <img
+          src="doge-logo.png"
+          alt="Own The Doge"
+          class="result-logo"
+        >
 
         <div class="score-circle">
           <div id="finalScore" class="score-number">0</div>
@@ -772,36 +741,54 @@
 
         <h2 id="rankTitle" class="rank"></h2>
 
-        <p id="resultMessage" class="result-message"></p>
+        <p
+          id="resultMessage"
+          class="result-message"
+        ></p>
 
+        <div
+          id="perfectScoreBox"
+          class="perfect-score-box hidden"
+        >
+          👑 PERFECT 25 / 25 👑
+          <br>
+          LEGENDARY DOGE STATUS ACHIEVED.
+          <br>
+          MUCH FLAWLESS. VERY WOW.
+        </div>
 
-         <div id="prizeBox" class="prize-box hidden">
+        <div id="prizeBox" class="prize-box hidden">
 
-  <img
-    src="doge-prize.png"
-    alt="Doge Day prize"
-    class="prize-image"
-  >
+          <img
+            src="doge-prize.png"
+            alt="Doge Day prize"
+            class="prize-image"
+          >
 
-  <div class="prize-kicker">
-    🏆 PRIZE TIER UNLOCKED
-  </div>
+          <div class="prize-kicker">
+            🏆 PRIZE TIER UNLOCKED
+          </div>
 
-  <h3 class="prize-title">
-    Ultimate Doge Day Lore Master
-  </h3>
+          <h3 class="prize-title">
+            Ultimate Doge Day Lore Master
+          </h3>
 
-  <p class="prize-text">
-    Much wow. You scored 20 or higher and unlocked the Doge Day prize tier.
-  </p>
+          <p class="prize-text">
+            Much wow. You scored 20 or higher and unlocked the
+            Doge Day prize tier.
+          </p>
 
-  <div class="screenshot-box">
-    📸 Screenshot this result to claim your achievement.
-  </div>
+          <div class="screenshot-box">
+            📸 Screenshot this result to claim your achievement.
+          </div>
 
-</div>
+        </div>
 
-        <button id="restartButton" class="primary-btn">
+        <button
+          id="restartButton"
+          class="primary-btn"
+          type="button"
+        >
           PLAY AGAIN 🔄
         </button>
 
@@ -849,322 +836,504 @@
 
   <script>
 
-    const originalQuestions = [
+    const QUESTION_COUNT = 25;
+
+    const questionBank = [
 
       {
-        question: "When is Doge Day officially celebrated?",
+        question: "When is Doge Day celebrated?",
         answers: [
-          "April 1st",
-          "April 20th",
           "October 31st",
-          "November 2nd"
+          "November 2nd",
+          "December 6th",
+          "November 8th"
         ],
         correct: "November 2nd"
       },
 
       {
-        question: "What is the name of the Shiba Inu dog that inspired the original Doge meme?",
+        question: "What was the name of the Shiba Inu behind the original Doge meme?",
         answers: [
-          "Luna",
-          "Pumpkin",
+          "Neiro",
+          "Maru",
           "Kabosu",
-          "Bella"
+          "Cocoro"
         ],
         correct: "Kabosu"
       },
 
       {
-        question: "Which of the following is a core principle of the Doge community?",
+        question: "Which phrase describes a core Dogely value?",
         answers: [
-          "Strict regulation",
+          "Memes before everything",
           "Do Only Good Everyday",
-          "Must love dogs",
-          "Charitable Donations"
+          "Every Doge for themselves",
+          "Much profit, very serious"
         ],
         correct: "Do Only Good Everyday"
       },
 
       {
-        question: "The Doge meme originated from which internet culture?",
+        question: "Which internet platforms helped popularize the original Doge meme?",
         answers: [
-          "4chan",
-          "Reddit",
-          "Tumblr",
-          "9GAG"
+          "TikTok and Instagram",
+          "Facebook and MySpace",
+          "YouTube and Snapchat",
+          "Tumblr and Reddit"
         ],
-        correct: "4chan"
+        correct: "Tumblr and Reddit"
       },
 
       {
-        question: "What breed of dogs are Kabosu, Cocoro, and Neiro?",
+        question: "What breed are Kabosu, Cocoro, and Neiro?",
         answers: [
-          "Corgi",
+          "Akita Inu",
           "Shiba Inu",
-          "Akita",
-          "Chow Chow"
+          "Japanese Spitz",
+          "Hokkaido Inu"
         ],
         correct: "Shiba Inu"
-      },
-
-      {
-        question: "What is the name of the community that helped build the Kabosu the Doge bronze statue in Japan?",
-        answers: [
-          "Own The Doge",
-          "Shiba Squad",
-          "Doge Nation",
-          "Meme Land"
-        ],
-        correct: "Own The Doge"
-      },
-
-      {
-        question: "Where is Kabosu the Doge bronze statue located?",
-        answers: [
-          "Sakura Furusato Square",
-          "Ueno Park, Tokyo",
-          "Tokyo Disneyland",
-          "Shibuya Crossing"
-        ],
-        correct: "Sakura Furusato Square"
-      },
-
-      {
-        question: "What's the most popular dog breed in Japan?",
-        answers: [
-          "Shih Tzu",
-          "Japanese Chin",
-          "Toy Poodle",
-          "Shiba Inu"
-        ],
-        correct: "Shiba Inu"
-      },
-
-      {
-        question: "Which of the following senses is strongest for a dog?",
-        answers: [
-          "Taste",
-          "Hearing",
-          "Touch",
-          "Smell"
-        ],
-        correct: "Smell"
-      },
-
-      {
-        question: "How many dogs and cats does Atsuko currently own?",
-        answers: [
-          "3 dogs, 2 cats",
-          "1 dog, 3 cats",
-          "2 dogs, 2 cats",
-          "2 dogs, 3 cats"
-        ],
-        correct: "2 dogs, 2 cats"
       },
 
       {
         question: "What does Cocoro mean in Japanese?",
         answers: [
-          "Love",
-          "Coconut",
+          "Happiness",
+          "Hope",
           "Heart",
-          "Crazy"
+          "Sunshine"
         ],
         correct: "Heart"
       },
 
       {
-  question: "How many years will Doge Day mark in 2026?",
-  answers: [
-    "2",
-    "3",
-    "4",
-    "5"
-  ],
-  correct: "4"
-},
-
-      {
-        question: "When was Neiro first adopted by Atsuko?",
+        question: "What was Kabosu doing in the iconic Doge photo?",
         answers: [
-          "July 27, 2024",
-          "June 17, 2024",
-          "October 27, 2024",
-          "November 2, 2024"
-        ],
-        correct: "July 27, 2024"
-      },
-
-      {
-        question: "What can you also find Kabosu's image on near her statue in Furusato Square?",
-        answers: [
-          "Manhole cover",
-          "Windmill",
-          "Billboard",
-          "Sign in tulip fields"
-        ],
-        correct: "Manhole cover"
-      },
-
-      {
-        question: "What was the original purpose of the Shiba Inu breed?",
-        answers: [
-          "To herd livestock",
-          "To pull sleds",
-          "To hunt small game and birds",
-          "To serve as a companion to royalty"
-        ],
-        correct: "To hunt small game and birds"
-      },
-
-      {
-        question: "When did Atsuko first announce that she adopted Cocoro?",
-        answers: [
-          "January 8, 2025",
-          "March 8, 2025",
-          "April 17, 2025",
-          "February 19, 2025"
-        ],
-        correct: "March 8, 2025"
-      },
-
-      {
-  question: "How old is Cocoro?",
-  answers: [
-    "8",
-    "9",
-    "10",
-    "11"
-  ],
-  correct: "11"
-},
-
-      {
-        question: "What was Kabosu doing when the iconic Doge photo was taken?",
-        answers: [
-          "Running in a field",
-          "Sitting in a car",
-          "Barking at a squirrel",
-          "Tilting her head on a couch"
+          "Running through a park",
+          "Wearing a birthday hat",
+          "Tilting her head on a couch",
+          "Sleeping next to a cat"
         ],
         correct: "Tilting her head on a couch"
       },
 
       {
-        question: "What famous phrase is often associated with the Doge meme style?",
+        question: "Which phrase is associated with Doge meme language?",
         answers: [
-          "very wow, such doge",
-          "so wow, much excite",
-          "such shiba, much wow",
-          "many bark, such wow"
+          "Just keep swimming",
+          "So wow, much excite",
+          "To the moon and beyond",
+          "Stay pawsitive"
         ],
-        correct: "so wow, much excite"
+        correct: "So wow, much excite"
       },
 
       {
-        question: "What's one key value celebrated by the Own The Doge community?",
+        question: "What is a Shiba Inu's famously dramatic vocalization called?",
         answers: [
-          "Competition",
-          "Kindness & Humor",
-          "Owning a Shiba Inu",
-          "Speed & Endurance"
-        ],
-        correct: "Kindness & Humor"
-      },
-
-      {
-        question: "What other famous loyal dog is honored with a statue at Tokyo's Shibuya Station?",
-        answers: [
-          "InuYasha",
-          "Kabosu",
-          "Taro",
-          "Hachiko"
-        ],
-        correct: "Hachiko"
-      },
-
-      {
-        question: "What does Shiba mean in Japanese?",
-        answers: [
-          "Mountain",
-          "Brushwood",
-          "Plant",
-          "Fox"
-        ],
-        correct: "Brushwood"
-      },
-
-      {
-        question: "What behavior are Shiba Inus most known for?",
-        answers: [
-          "Sleeping long hours",
-          "Herding sheep",
           "The Shiba Scream",
-          "Digging holes"
+          "The Doge Howl",
+          "The Shiba Whistle",
+          "The Inu Yodel"
         ],
         correct: "The Shiba Scream"
       },
 
       {
-        question: "What color is not a natural coat variation for the Shiba Inu breed?",
+        question: "What item featuring Kabosu's image can be found near her statue in Sakura?",
         answers: [
-          "Blue",
-          "Black & tan",
-          "Red",
-          "Cream"
+          "A vending machine",
+          "A manhole cover",
+          "A street clock",
+          "A mailbox"
         ],
-        correct: "Blue"
+        correct: "A manhole cover"
       },
 
-     {
-  question: "How old is Neiro?",
-  answers: [
-    "9",
-    "10",
-    "11",
-    "12"
-  ],
-  correct: "12"
-}
+      {
+        question: "Which community helped organize the Bronze The Doge statue project alongside other Doge organizations and supporters?",
+        answers: [
+          "Shiba Inu Rescue Japan",
+          "DogeCoin 2.0",
+          "Own The Doge",
+          "MemeDAO"
+        ],
+        correct: "Own The Doge"
+      },
+
+      {
+        question: "Where is the Kabosu bronze statue located?",
+        answers: [
+          "Yoyogi Park, Tokyo",
+          "Nara Park, Nara",
+          "Sakura Furusato Square, Japan",
+          "Ueno Park, Tokyo"
+        ],
+        correct: "Sakura Furusato Square, Japan"
+      },
+
+      {
+        question: "What numbered annual Doge Day celebration is happening in 2026?",
+        answers: [
+          "2nd",
+          "3rd",
+          "4th",
+          "5th"
+        ],
+        correct: "4th"
+      },
+
+      {
+        question: "Which group purchased the original Doge NFT before it was fractionalized?",
+        answers: [
+          "The Dogecoin Foundation",
+          "PleasrDAO",
+          "Yuga Labs",
+          "Nouns DAO"
+        ],
+        correct: "PleasrDAO"
+      },
+
+      {
+        question: "How many $DOG tokens were created when the original Doge NFT was fractionalized?",
+        answers: [
+          "1.7 billion",
+          "16.9 million",
+          "16.9 billion",
+          "10 billion"
+        ],
+        correct: "16.9 billion"
+      },
+
+      {
+        question: "What community grew around shared ownership of the original Doge NFT through $DOG?",
+        answers: [
+          "DogeDAO",
+          "Own The Doge",
+          "Shiba Army",
+          "Dogecoin Foundation"
+        ],
+        correct: "Own The Doge"
+      },
+
+      {
+        question: "How much did Own The Doge donate to Save the Children?",
+        answers: [
+          "$100,000",
+          "$500,000",
+          "$750,000",
+          "$1 million"
+        ],
+        correct: "$1 million"
+      },
+
+      {
+        question: "According to Own The Doge's published charity history, what donor distinction did it earn with Save the Children?",
+        answers: [
+          "Its largest animal welfare donor",
+          "Its all-time largest cryptocurrency donor",
+          "Its first NFT art donor",
+          "Its longest-running corporate sponsor"
+        ],
+        correct: "Its all-time largest cryptocurrency donor"
+      },
+
+      {
+        question: "Which meme legend traveled to Japan to meet Kabosu during the 2023 Doge Pilgrimage?",
+        answers: [
+          "Bad Luck Brian",
+          "Success Kid",
+          "Disaster Girl",
+          "Hide the Pain Harold"
+        ],
+        correct: "Bad Luck Brian"
+      },
+
+      {
+        question: "What charitable cause benefited from the Doge couch auction?",
+        answers: [
+          "Animal shelters in Japan",
+          "Flood relief in Europe",
+          "Earthquake relief efforts in Turkey",
+          "Wildlife conservation in Australia"
+        ],
+        correct: "Earthquake relief efforts in Turkey"
+      },
+
+      {
+        question: "What are the names of Atsuko Sato's three cats associated with Kabosu's original Doge family?",
+        answers: [
+          "Mochi, Yuki, and Hana",
+          "Tsutsuji, Ginnan, and Onigiri",
+          "Sakura, Kiko, and Nori",
+          "Maru, Tama, and Mikan"
+        ],
+        correct: "Tsutsuji, Ginnan, and Onigiri"
+      },
+
+      {
+        question: "When did Atsuko first publicly announce Cocoro's adoption?",
+        answers: [
+          "February 14, 2025",
+          "March 8, 2025",
+          "April 1, 2025",
+          "November 2, 2024"
+        ],
+        correct: "March 8, 2025"
+      },
+
+      {
+        question: "What year was the original Doge NFT sold to PleasrDAO?",
+        answers: [
+          "2019",
+          "2020",
+          "2021",
+          "2022"
+        ],
+        correct: "2021"
+      },
+
+      {
+        question: "How much money was raised through the Doge couch auction?",
+        answers: [
+          "$42,000",
+          "$69,000",
+          "$100,000",
+          "$250,000"
+        ],
+        correct: "$69,000"
+      },
+
+      {
+        question: "Who received a letter of appreciation from the Mayor of Sakura City?",
+        answers: [
+          "The Dogecoin Foundation",
+          "Atsuko Sato and the Own The Doge community",
+          "The creator of the Doge NFT",
+          "The artist who made the Doge sand art"
+        ],
+        correct: "Atsuko Sato and the Own The Doge community"
+      },
+
+      {
+        question: "Which sense is strongest for a dog?",
+        answers: [
+          "Sight",
+          "Taste",
+          "Smell",
+          "Touch"
+        ],
+        correct: "Smell"
+      },
+
+      {
+        question: "In which month and year did Atsuko first introduce Neiro to the world?",
+        answers: [
+          "May 2024",
+          "July 2024",
+          "September 2024",
+          "March 2025"
+        ],
+        correct: "July 2024"
+      },
+
+      {
+        question: "What were Shiba Inus originally bred to do?",
+        answers: [
+          "Herd sheep and cattle",
+          "Guard royal palaces",
+          "Hunt small game and birds",
+          "Pull sleds through snow"
+        ],
+        correct: "Hunt small game and birds"
+      },
+
+      {
+        question: "How old was Cocoro when Atsuko publicly introduced her in March 2025?",
+        answers: [
+          "8 years old",
+          "9 years old",
+          "10 years old",
+          "11 years old"
+        ],
+        correct: "10 years old"
+      },
+
+      {
+        question: "What's a core value celebrated by the Own The Doge community?",
+        answers: [
+          "Competition and exclusivity",
+          "Kindness and humor",
+          "Profits above everything",
+          "Keeping memes private"
+        ],
+        correct: "Kindness and humor"
+      },
+
+      {
+        question: "What does “Shiba” mean in Japanese?",
+        answers: [
+          "Little fox",
+          "Golden fur",
+          "Brushwood",
+          "Mountain dog"
+        ],
+        correct: "Brushwood"
+      },
+
+      {
+        question: "How old was Neiro when Atsuko publicly introduced her in July 2024?",
+        answers: [
+          "8 years old",
+          "9 years old",
+          "10 years old",
+          "12 years old"
+        ],
+        correct: "10 years old"
+      },
+
+      {
+        question: "In what year was the word “Doge” added to Dictionary.com?",
+        answers: [
+          "2013",
+          "2014",
+          "2015",
+          "2017"
+        ],
+        correct: "2015"
+      },
+
+      {
+        question: "What cause did Own The Doge's donation to Save the Children support?",
+        answers: [
+          "Animal rescue programs in Japan",
+          "Children affected by the crisis in Afghanistan",
+          "Ocean conservation projects",
+          "School construction in Europe"
+        ],
+        correct: "Children affected by the crisis in Afghanistan"
+      },
+
+      {
+        question: "What two milestones were celebrated on November 2, 2023?",
+        answers: [
+          "The launch of Dogecoin 2.0",
+          "The unveiling of Kabosu's bronze statue and her 18th birthday",
+          "DogeClaren's first race",
+          "The first Doge fan pilgrimage"
+        ],
+        correct: "The unveiling of Kabosu's bronze statue and her 18th birthday"
+      },
+
+      {
+        question: "What famous piece of Doge history was auctioned on February 7, 2023?",
+        answers: [
+          "Kabosu's original collar",
+          "A signed photograph of Kabosu",
+          "The real-life couch Kabosu sat on in the iconic Doge photograph",
+          "Kabosu's favorite dog toy"
+        ],
+        correct: "The real-life couch Kabosu sat on in the iconic Doge photograph"
+      },
+
+      {
+        question: "What famous dog has a statue at Tokyo's Shibuya Station?",
+        answers: [
+          "Laika",
+          "Hachiko",
+          "Balto",
+          "Togo"
+        ],
+        correct: "Hachiko"
+      }
 
     ];
 
 
- let currentQuestionIndex = 0;
-let score = 0;
-let streak = 0;
-let answered = false;
+    let questions = [];
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let streak = 0;
+    let roundScoreCount = 0;
+    let answered = false;
 
 
-    const startScreen = document.getElementById("startScreen");
-const quizScreen = document.getElementById("quizScreen");
-const roundScreen = document.getElementById("roundScreen");
-const resultScreen = document.getElementById("resultScreen");
+    const startScreen =
+      document.getElementById("startScreen");
 
-  const startButton = document.getElementById("startButton");
-const nextButton = document.getElementById("nextButton");
-const continueRoundButton =
-  document.getElementById("continueRoundButton");
-const restartButton = document.getElementById("restartButton");
+    const quizScreen =
+      document.getElementById("quizScreen");
 
-    const roundTitle = document.getElementById("roundTitle");
-const roundMessage = document.getElementById("roundMessage");
-const roundScore = document.getElementById("roundScore");
+    const roundScreen =
+      document.getElementById("roundScreen");
 
-    const questionCounter = document.getElementById("questionCounter");
-    const liveScore = document.getElementById("liveScore");
-    const progressBar = document.getElementById("progressBar");
+    const resultScreen =
+      document.getElementById("resultScreen");
 
-    const questionText = document.getElementById("questionText");
-    const answerButtons = document.getElementById("answerButtons");
 
-    const feedbackBox = document.getElementById("feedbackBox");
-    const streakBox = document.getElementById("streakBox");
-    const reactionImage = document.getElementById("reactionImage");
+    const startButton =
+      document.getElementById("startButton");
 
-    const finalScore = document.getElementById("finalScore");
-    const rankTitle = document.getElementById("rankTitle");
-    const resultMessage = document.getElementById("resultMessage");
-    const prizeBox = document.getElementById("prizeBox");
+    const nextButton =
+      document.getElementById("nextButton");
+
+    const continueRoundButton =
+      document.getElementById("continueRoundButton");
+
+    const restartButton =
+      document.getElementById("restartButton");
+
+
+    const questionCounter =
+      document.getElementById("questionCounter");
+
+    const liveScore =
+      document.getElementById("liveScore");
+
+    const progressBar =
+      document.getElementById("progressBar");
+
+    const questionText =
+      document.getElementById("questionText");
+
+    const answerButtons =
+      document.getElementById("answerButtons");
+
+    const streakBox =
+      document.getElementById("streakBox");
+
+    const reactionImage =
+      document.getElementById("reactionImage");
+
+    const feedbackBox =
+      document.getElementById("feedbackBox");
+
+    const finalScore =
+      document.getElementById("finalScore");
+
+    const rankTitle =
+      document.getElementById("rankTitle");
+
+    const resultMessage =
+      document.getElementById("resultMessage");
+
+    const prizeBox =
+      document.getElementById("prizeBox");
+
+    const perfectScoreBox =
+      document.getElementById("perfectScoreBox");
+
+    const roundTitle =
+      document.getElementById("roundTitle");
+
+    const roundMessage =
+      document.getElementById("roundMessage");
+
+    const roundScore =
+      document.getElementById("roundScore");
+
+    const roundPerformance =
+      document.getElementById("roundPerformance");
 
 
     function shuffle(array) {
@@ -1173,7 +1342,8 @@ const roundScore = document.getElementById("roundScore");
 
       for (let i = shuffled.length - 1; i > 0; i--) {
 
-        const j = Math.floor(Math.random() * (i + 1));
+        const j =
+          Math.floor(Math.random() * (i + 1));
 
         [shuffled[i], shuffled[j]] =
           [shuffled[j], shuffled[i]];
@@ -1184,61 +1354,75 @@ const roundScore = document.getElementById("roundScore");
     }
 
 
-   function beginQuiz() {
+    function beginQuiz() {
 
-  questions = shuffle(originalQuestions).map(item => ({
-    ...item,
-    answers: shuffle(item.answers)
-  }));
+      questions =
+        shuffle(questionBank)
+          .slice(0, QUESTION_COUNT)
+          .map(item => ({
+            ...item,
+            answers: shuffle(item.answers)
+          }));
 
- currentQuestionIndex = 0;
-score = 0;
-streak = 0;
-answered = false;
+      currentQuestionIndex = 0;
+      score = 0;
+      streak = 0;
+      roundScoreCount = 0;
+      answered = false;
 
-  startScreen.classList.add("hidden");
-  resultScreen.classList.add("hidden");
-  quizScreen.classList.remove("hidden");
+      startScreen.classList.add("hidden");
+      roundScreen.classList.add("hidden");
+      resultScreen.classList.add("hidden");
+      quizScreen.classList.remove("hidden");
 
-  showQuestion();
-}
+      showQuestion();
+    }
 
 
     function showQuestion() {
 
       answered = false;
 
-feedbackBox.classList.add("hidden");
-reactionImage.classList.add("hidden");
-reactionImage.src = "";
-nextButton.classList.add("hidden");
-streakBox.classList.add("hidden");
-      
-      const current = questions[currentQuestionIndex];
+      feedbackBox.classList.add("hidden");
+
+      reactionImage.classList.add("hidden");
+      reactionImage.src = "";
+      reactionImage.alt = "";
+
+      streakBox.classList.add("hidden");
+
+      nextButton.classList.add("hidden");
+
+      const current =
+        questions[currentQuestionIndex];
 
       questionCounter.textContent =
-        `Question ${currentQuestionIndex + 1} of ${questions.length}`;
+        `Question ${currentQuestionIndex + 1} of ${QUESTION_COUNT}`;
 
-      liveScore.textContent = `Score: ${score}`;
+      liveScore.textContent =
+        `Score: ${score}`;
 
       progressBar.style.width =
-        `${(currentQuestionIndex / questions.length) * 100}%`;
+        `${(currentQuestionIndex / QUESTION_COUNT) * 100}%`;
 
-      questionText.textContent = current.question;
+      questionText.textContent =
+        current.question;
 
       answerButtons.innerHTML = "";
 
       current.answers.forEach(answer => {
 
-        const button = document.createElement("button");
+        const button =
+          document.createElement("button");
 
         button.className = "answer-btn";
         button.type = "button";
         button.textContent = answer;
 
-        button.addEventListener("click", () => {
-          chooseAnswer(button, answer);
-        });
+        button.addEventListener(
+          "click",
+          () => chooseAnswer(button, answer)
+        );
 
         answerButtons.appendChild(button);
 
@@ -1259,8 +1443,11 @@ streakBox.classList.add("hidden");
 
       answered = true;
 
-      const current = questions[currentQuestionIndex];
-      const buttons = answerButtons.querySelectorAll(".answer-btn");
+      const current =
+        questions[currentQuestionIndex];
+
+      const buttons =
+        answerButtons.querySelectorAll(".answer-btn");
 
       buttons.forEach(button => {
 
@@ -1277,11 +1464,17 @@ streakBox.classList.add("hidden");
 
         score++;
         streak++;
+        roundScoreCount++;
 
-showStreak();
-        reactionImage.src = "doge-correct.jpg";
-reactionImage.alt = "Doge celebrating a correct answer";
-reactionImage.classList.remove("hidden");
+        showStreak();
+
+        reactionImage.src =
+          "doge-correct.jpg";
+
+        reactionImage.alt =
+          "Doge celebrating a correct answer";
+
+        reactionImage.classList.remove("hidden");
 
         selectedButton.classList.add("correct");
 
@@ -1292,11 +1485,18 @@ reactionImage.classList.remove("hidden");
           "feedback correct";
 
       } else {
+
         streak = 0;
-streakBox.classList.add("hidden");
-        reactionImage.src = "doge-wrong.webp";
-reactionImage.alt = "Doge reacting to a wrong answer";
-reactionImage.classList.remove("hidden");
+
+        streakBox.classList.add("hidden");
+
+        reactionImage.src =
+          "doge-wrong.webp";
+
+        reactionImage.alt =
+          "Doge reacting to a wrong answer";
+
+        reactionImage.classList.remove("hidden");
 
         selectedButton.classList.add("wrong");
 
@@ -1308,41 +1508,53 @@ reactionImage.classList.remove("hidden");
 
       }
 
-      liveScore.textContent = `Score: ${score}`;
+      liveScore.textContent =
+        `Score: ${score}`;
 
       feedbackBox.classList.remove("hidden");
+
       nextButton.classList.remove("hidden");
     }
-function showStreak() {
 
-  if (streak < 2) {
-    streakBox.classList.add("hidden");
-    return;
-  }
 
-  let message = "";
+    function showStreak() {
 
-  if (streak === 2) {
+      if (streak < 2) {
 
-    message = "🐾 2 IN A ROW — MUCH MOMENTUM!";
+        streakBox.classList.add("hidden");
+        return;
 
-  } else if (streak === 3) {
+      }
 
-    message = "🔥 3 IN A ROW — SUCH STREAK!";
+      let message = "";
 
-  } else if (streak === 4) {
+      if (streak === 2) {
 
-    message = "🔥🔥 4 IN A ROW — VERY UNSTOPPABLE!";
+        message =
+          "🐾 2 IN A ROW — MUCH MOMENTUM!";
 
-  } else {
+      } else if (streak === 3) {
 
-    message = `👑 ${streak} IN A ROW — UNSTOPPABLE DOGE!`;
+        message =
+          "🔥 3 IN A ROW — SUCH STREAK!";
 
-  }
+      } else if (streak === 4) {
 
-  streakBox.textContent = message;
-  streakBox.classList.remove("hidden");
-}
+        message =
+          "🔥🔥 4 IN A ROW — VERY UNSTOPPABLE!";
+
+      } else {
+
+        message =
+          `👑 ${streak} IN A ROW — UNSTOPPABLE DOGE!`;
+
+      }
+
+      streakBox.textContent = message;
+
+      streakBox.classList.remove("hidden");
+    }
+
 
     function getCorrectReaction() {
 
@@ -1355,7 +1567,9 @@ function showStreak() {
       ];
 
       return reactions[
-        Math.floor(Math.random() * reactions.length)
+        Math.floor(
+          Math.random() * reactions.length
+        )
       ];
     }
 
@@ -1371,135 +1585,231 @@ function showStreak() {
       ];
 
       return reactions[
-        Math.floor(Math.random() * reactions.length)
+        Math.floor(
+          Math.random() * reactions.length
+        )
       ];
     }
-function showRoundBreak() {
-
-  quizScreen.classList.add("hidden");
-  roundScreen.classList.remove("hidden");
-
-  const completed = currentQuestionIndex;
-
-  let title = "";
-  let message = "";
-
-  if (completed === 5) {
-    title = "MUCH START 🐕";
-    message =
-      "Five questions down. Your Doge knowledge journey is officially underway.";
-  } else if (completed === 10) {
-    title = "SUCH KNOWLEDGE ✨";
-    message =
-      "Ten questions complete. The lore is getting real.";
-  } else if (completed === 15) {
-    title = "VERY LORE 🔥";
-    message =
-      "You're deep in Doge territory now. Ten questions remain.";
-  } else if (completed === 20) {
-    title = "FINAL ROUND 👑";
-    message =
-      "Five questions remain. Ultimate Doge status is within reach.";
-  }
-
-  roundTitle.textContent = title;
-  roundMessage.textContent = message;
-  roundScore.textContent =
-    `Current score: ${score} / ${completed}`;
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
-    function continueRound() {
-
-  roundScreen.classList.add("hidden");
-  quizScreen.classList.remove("hidden");
-
-  showQuestion();
-}
 
 
-function nextQuestion() {
+    function nextQuestion() {
 
-  currentQuestionIndex++;
+      currentQuestionIndex++;
 
-  if (currentQuestionIndex >= questions.length) {
-    showResults();
-    return;
-  }
+      if (
+        currentQuestionIndex >=
+        QUESTION_COUNT
+      ) {
 
-  if (currentQuestionIndex % 5 === 0) {
-    showRoundBreak();
-  } else {
-    showQuestion();
-  }
-}
+        showResults();
+        return;
 
-function showResults() {
+      }
+
+      if (
+        currentQuestionIndex % 5 === 0
+      ) {
+
+        showRoundBreak();
+
+      } else {
+
+        showQuestion();
+
+      }
+    }
+
+
+    function showRoundBreak() {
 
       quizScreen.classList.add("hidden");
+      roundScreen.classList.remove("hidden");
+
+      const completed =
+        currentQuestionIndex;
+
+      let title = "";
+      let message = "";
+
+      if (completed === 5) {
+
+        title =
+          "MUCH START 🐕";
+
+        message =
+          "Five questions down. Your Doge knowledge journey is officially underway.";
+
+      } else if (completed === 10) {
+
+        title =
+          "SUCH KNOWLEDGE ✨";
+
+        message =
+          "Ten questions complete. The lore is getting real.";
+
+      } else if (completed === 15) {
+
+        title =
+          "VERY LORE 🔥";
+
+        message =
+          "You're deep in Doge territory now. Ten questions remain.";
+
+      } else if (completed === 20) {
+
+        title =
+          "FINAL ROUND 👑";
+
+        message =
+          "Five questions remain. Ultimate Doge status is within reach.";
+
+      }
+
+      roundTitle.textContent =
+        title;
+
+      roundMessage.textContent =
+        message;
+
+      roundScore.textContent =
+        `Current score: ${score} / ${completed}`;
+
+      let performance = "";
+
+      if (roundScoreCount === 5) {
+
+        performance =
+          "🏆 PERFECT 5/5 — MUCH FLAWLESS. VERY DOGE.";
+
+      } else if (roundScoreCount === 4) {
+
+        performance =
+          "🔥 4/5 — SO CLOSE TO PERFECT!";
+
+      } else if (roundScoreCount === 3) {
+
+        performance =
+          "🐕 3/5 — SOLID DOGE ENERGY.";
+
+      } else if (roundScoreCount === 2) {
+
+        performance =
+          "🐾 2/5 — MUCH LEARNING. KEEP GOING!";
+
+      } else {
+
+        performance =
+          "✨ THE DOGE JOURNEY CONTINUES.";
+
+      }
+
+      roundPerformance.textContent =
+        performance;
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+
+    function continueRound() {
+
+      roundScreen.classList.add("hidden");
+
+      quizScreen.classList.remove("hidden");
+
+      roundScoreCount = 0;
+
+      showQuestion();
+    }
+
+
+    function showResults() {
+
+      quizScreen.classList.add("hidden");
+      roundScreen.classList.add("hidden");
       resultScreen.classList.remove("hidden");
 
       progressBar.style.width = "100%";
 
-      finalScore.textContent = score;
+      finalScore.textContent =
+        score;
 
       let rank = "";
       let message = "";
 
-
       if (score <= 9) {
 
-        rank = "🐾 DOGE ROOKIE";
+        rank =
+          "🐾 DOGE ROOKIE";
 
         message =
           "Your Doge journey has begun. Such potential. Much learning.";
 
       } else if (score <= 14) {
 
-        rank = "✨ MUCH KNOWLEDGE";
+        rank =
+          "✨ MUCH KNOWLEDGE";
 
         message =
           "You know your way around the Doge universe. Much respectable.";
 
       } else if (score <= 19) {
 
-        rank = "🔥 CERTIFIED DOGE ENJOYER";
+        rank =
+          "🔥 CERTIFIED DOGE ENJOYER";
 
         message =
           "Very close to elite Doge status. Your lore game is strong.";
 
       } else if (score <= 23) {
 
-        rank = "🏆 DOGE HISTORIAN";
+        rank =
+          "🏆 DOGE HISTORIAN";
 
         message =
           "Much knowledge. Very lore. You clearly know your Doge history.";
 
       } else {
 
-        rank = "👑 ULTIMATE DOGE LORE MASTER";
+        rank =
+          "👑 ULTIMATE DOGE LORE MASTER";
 
         message =
           "Such legendary. Very wow. Few can match this level of Doge knowledge.";
 
       }
 
+      rankTitle.textContent =
+        rank;
 
-      rankTitle.textContent = rank;
-      resultMessage.textContent = message;
+      resultMessage.textContent =
+        message;
 
 
       if (score >= 20) {
 
         prizeBox.classList.remove("hidden");
-        launchConfetti();
+
+        launchConfetti(
+          score === 25 ? 180 : 90
+        );
 
       } else {
 
         prizeBox.classList.add("hidden");
+
+      }
+
+
+      if (score === 25) {
+
+        perfectScoreBox.classList.remove("hidden");
+
+      } else {
+
+        perfectScoreBox.classList.add("hidden");
 
       }
 
@@ -1511,11 +1821,13 @@ function showResults() {
     }
 
 
-    function launchConfetti() {
+    function launchConfetti(amount) {
 
       if (
         window.matchMedia &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches
       ) {
         return;
       }
@@ -1527,17 +1839,28 @@ function showResults() {
         "#ffffff"
       ];
 
-      for (let i = 0; i < 90; i++) {
+      for (
+        let i = 0;
+        i < amount;
+        i++
+      ) {
 
-        const piece = document.createElement("div");
+        const piece =
+          document.createElement("div");
 
-        piece.className = "confetti";
+        piece.className =
+          "confetti";
 
         piece.style.left =
           `${Math.random() * 100}%`;
 
         piece.style.background =
-          colors[Math.floor(Math.random() * colors.length)];
+          colors[
+            Math.floor(
+              Math.random() *
+              colors.length
+            )
+          ];
 
         piece.style.animationDuration =
           `${2.5 + Math.random() * 2.5}s`;
@@ -1561,10 +1884,16 @@ function showResults() {
     function restartQuiz() {
 
       resultScreen.classList.add("hidden");
+
+      roundScreen.classList.add("hidden");
+
       startScreen.classList.remove("hidden");
 
       score = 0;
+      streak = 0;
+      roundScoreCount = 0;
       currentQuestionIndex = 0;
+      answered = false;
 
       window.scrollTo({
         top: 0,
@@ -1573,16 +1902,25 @@ function showResults() {
     }
 
 
-startButton.addEventListener("click", beginQuiz);
+    startButton.addEventListener(
+      "click",
+      beginQuiz
+    );
 
-nextButton.addEventListener("click", nextQuestion);
+    nextButton.addEventListener(
+      "click",
+      nextQuestion
+    );
 
-continueRoundButton.addEventListener(
-  "click",
-  continueRound
-);
+    continueRoundButton.addEventListener(
+      "click",
+      continueRound
+    );
 
-restartButton.addEventListener("click", restartQuiz);
+    restartButton.addEventListener(
+      "click",
+      restartQuiz
+    );
 
   </script>
 
