@@ -365,7 +365,19 @@
       font-size: 20px;
       margin-bottom: 18px;
     }
-
+    
+.perfect-round-badge {
+  width: fit-content;
+  margin: 0 auto 18px;
+  padding: 10px 18px;
+  background: #f4a300;
+  color: #111;
+  border: 3px solid #111;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 900;
+  box-shadow: 3px 3px 0 #111;
+}
     .round-performance {
       margin: 0 auto 22px;
       max-width: 520px;
@@ -869,12 +881,19 @@
 
         <p id="roundMessage" class="round-message"></p>
 
-        <div id="roundScore" class="round-score"></div>
+       <div id="roundScore" class="round-score"></div>
 
-        <div
-          id="roundPerformance"
-          class="round-performance"
-        ></div>
+<div
+  id="perfectRoundBadge"
+  class="perfect-round-badge hidden"
+>
+  🏆 PERFECT ROUND
+</div>
+
+<div
+  id="roundPerformance"
+  class="round-performance"
+></div>
 
         <button
           id="continueRoundButton"
@@ -1539,6 +1558,9 @@ const playerHandle =
     const roundPerformance =
       document.getElementById("roundPerformance");
 
+    const perfectRoundBadge =
+  document.getElementById("perfectRoundBadge");
+
     const powerMeter =
   document.getElementById("powerMeter");
 
@@ -1936,7 +1958,12 @@ function showStreak() {
         `Current score: ${score} / ${completed}`;
 
       let performance = "";
-
+      
+if (roundScoreCount === 5) {
+  perfectRoundBadge.classList.remove("hidden");
+} else {
+  perfectRoundBadge.classList.add("hidden");
+}
       if (roundScoreCount === 5) {
 
         performance =
