@@ -424,23 +424,6 @@
       margin-top: 7px;
     }
 
-.score-bump {
-  display: inline-block;
-  animation: scoreBump 0.4s ease;
-}
-
-@keyframes scoreBump {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.2);
-  }
-
-  100% {
-    transform: scale(1);
-  }
 }
     .rank {
       font-size: clamp(28px, 6vw, 44px);
@@ -1747,10 +1730,6 @@ streakBox.classList.add("hidden");
       }
 liveScore.textContent =
   `Score: ${score}`;
-
-liveScore.classList.remove("score-bump");
-void liveScore.offsetWidth;
-liveScore.classList.add("score-bump");
 
 feedbackBox.classList.remove("hidden");
 
