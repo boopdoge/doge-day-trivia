@@ -424,6 +424,23 @@
       margin-top: 7px;
     }
 
+  .score-bump {
+  animation: scoreBump 0.3s ease;
+}
+
+@keyframes scoreBump {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
     .rank {
       font-size: clamp(28px, 6vw, 44px);
       margin-bottom: 8px;
@@ -1727,15 +1744,17 @@ streakBox.classList.add("hidden");
           "feedback wrong";
 
       }
+liveScore.textContent =
+  `Score: ${score}`;
 
-      liveScore.textContent =
-        `Score: ${score}`;
+liveScore.classList.remove("score-bump");
+void liveScore.offsetWidth;
+liveScore.classList.add("score-bump");
 
-      feedbackBox.classList.remove("hidden");
+feedbackBox.classList.remove("hidden");
 
-      nextButton.classList.remove("hidden");
-    }
-
+nextButton.classList.remove("hidden");
+      
 function updateDogePower() {
 
   const percentage =
