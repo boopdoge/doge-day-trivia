@@ -1820,10 +1820,16 @@ function updateDogePower() {
     powerMessage.textContent =
       "🚀 VERY POWERFUL DOGE";
 
-} else if (score === 20) {
+  } else if (score === 20) {
 
-  powerMessage.textContent =
-    "🏆 PRIZE TIER UNLOCKED!";
+    powerMessage.textContent =
+      "🏆 PRIZE TIER UNLOCKED!";
+
+    prizeMarker.classList.add("glow");
+
+    setTimeout(() => {
+      prizeMarker.classList.remove("glow");
+    }, 2500);
 
   } else if (score < 25) {
 
