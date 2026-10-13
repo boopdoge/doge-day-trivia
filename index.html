@@ -2195,9 +2195,15 @@ function copyScore() {
   const enteredHandle =
     playerHandle.value.trim();
 
-  let shareText =
+ const enteredHandle =
+  playerHandle.value.trim();
+
+let shareText =
   `I scored ${score}/25 on Own The Doge's Ultimate Doge Day Lore Trivia 🐕🏆\n\nMuch lore. Very wow.\n\nThink you know your Doge history? Go test your skills and see if you can beat my score 👀`;
 
+if (enteredHandle) {
+  shareText += ` — ${enteredHandle}`;
+}
   if (enteredHandle) {
     shareText += ` — ${enteredHandle}`;
   }
