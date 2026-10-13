@@ -807,9 +807,10 @@
         </p>
 
         <div class="rules">
-          <strong>🏆 The challenge:</strong><br>
-          Score at least <strong>20 out of 25</strong> to unlock the
-          Doge Day prize tier.
+         <strong>🏆 The challenge:</strong><br>
+Score at least <strong>20 out of 25</strong> to become an
+Ultimate Doge Day Lore Master.
+          
           <br><br>
           Questions and answers shuffle every game.
           <br><br>
@@ -1030,24 +1031,22 @@
             alt="Doge Day prize"
             class="prize-image"
           >
-
-          <div class="prize-kicker">
-            🏆 PRIZE TIER UNLOCKED
-          </div>
-
-          <h3 class="prize-title">
-            Ultimate Doge Day Lore Master
-          </h3>
-
-          <p class="prize-text">
-            Much wow. You scored 20 or higher and unlocked the
-            Doge Day prize tier.
-          </p>
-
-  <div class="screenshot-box">
-  📸 Screenshot this result to claim your achievement.
+<div class="prize-kicker">
+  🏆 20 / 25+ ACHIEVED
 </div>
 
+<h3 class="prize-title">
+  Ultimate Doge Day Lore Master
+</h3>
+
+<p class="prize-text">
+  At Doge Day in person? Screenshot this result and stop by
+  the merch booth to receive a special prize.
+</p>
+
+<div class="screenshot-box">
+  📸 Show your 20/25+ result at the Doge Day merch booth. While supplies last.
+</div>
 </div>
 
 <button
@@ -1058,6 +1057,18 @@
   COPY MY SCORE 📋
 </button>
 
+<div class="online-giveaway">
+  <strong>Can’t make it IRL?</strong><br><br>
+
+  Post your trivia result on X and tag
+  <strong>@ownthedoge</strong> for a chance to win a
+  <strong>Mini Doge Bronze Statue!</strong>
+  <br><br>
+
+  U.S. residents only. One winner selected at random.
+  No purchase necessary. X is not affiliated with this giveaway.
+</div>
+
 <button
   id="restartButton"
   class="primary-btn"
@@ -1065,7 +1076,6 @@
 >
   PLAY AGAIN 🔄
 </button>
-        
         <p class="share-note">
           Share your score with the Doge community —
           but don't spoil the answers. 👀
@@ -1848,8 +1858,8 @@ function updateDogePower() {
 
   } else if (score === 20) {
 
-    powerMessage.textContent =
-      "🏆 PRIZE TIER UNLOCKED!";
+  powerMessage.textContent =
+  "🏆 ULTIMATE DOGE STATUS UNLOCKED!";
 
     prizeMarker.classList.add("glow");
 
