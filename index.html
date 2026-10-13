@@ -697,6 +697,27 @@
   pointer-events: none;
 }
 
+.prize-marker.glow {
+  animation: trophyGlow 0.8s ease 3;
+}
+
+@keyframes trophyGlow {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    filter: drop-shadow(0 0 0 rgba(244, 163, 0, 0));
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.35);
+    filter: drop-shadow(0 0 10px rgba(244, 163, 0, 0.9));
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    filter: drop-shadow(0 0 0 rgba(244, 163, 0, 0));
+  }
+  
+}
 .prize-marker::after {
   content: "20";
   position: absolute;
@@ -813,12 +834,13 @@
 
     <div id="powerMeter" class="power-meter"></div>
 
-    <div
-      class="prize-marker"
-      aria-label="Prize threshold at 20 out of 25"
-    >
-      🏆
-    </div>
+   <div
+  id="prizeMarker"
+  class="prize-marker"
+  aria-label="Prize threshold at 20 out of 25"
+>
+  🏆
+</div>
 
   </div>
 
@@ -1582,6 +1604,9 @@ const powerText =
 const powerMessage =
   document.getElementById("powerMessage");
 
+const prizeMarker =
+  document.getElementById("prizeMarker");
+    
     function shuffle(array) {
 
       const shuffled = [...array];
@@ -1795,10 +1820,14 @@ function updateDogePower() {
     powerMessage.textContent =
       "🚀 VERY POWERFUL DOGE";
 
-  } else if (score === 20) {
+} else if (score === 20) {
 
-    powerMessage.textContent =
-      "🏆 PRIZE TIER UNLOCKED!";
+  powerMessage.textContent =
+    "🏆 PRIZE TIER UNLOCKED!";
+
+  prizeMarker.classList.remove("glow");
+  void prizeMarker.offsetWidth;
+  prizeMarker.classList.add("glow");
 
   } else if (score < 25) {
 
