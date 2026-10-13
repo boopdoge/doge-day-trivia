@@ -452,6 +452,17 @@
       font-size: clamp(28px, 6vw, 44px);
       margin-bottom: 8px;
     }
+    .rarity-rank {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 7px 14px;
+  border: 2px solid #111;
+  border-radius: 999px;
+  background: #fff6d7;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
 
     .result-message {
       color: #555;
@@ -963,6 +974,8 @@
 
         <h2 id="rankTitle" class="rank"></h2>
 
+        <div id="rarityRank" class="rarity-rank"></div>
+        
         <p
           id="resultMessage"
           class="result-message"
@@ -1566,6 +1579,9 @@
     const rankTitle =
       document.getElementById("rankTitle");
 
+    const rarityRank =
+  document.getElementById("rarityRank");
+    
     const resultMessage =
       document.getElementById("resultMessage");
 
@@ -2127,6 +2143,33 @@ if (roundScoreCount === 5) {
 
       resultMessage.textContent =
         message;
+
+if (score <= 9) {
+
+  rarityRank.textContent =
+    "COMMON";
+
+} else if (score <= 14) {
+
+  rarityRank.textContent =
+    "UNCOMMON";
+
+} else if (score <= 19) {
+
+  rarityRank.textContent =
+    "RARE";
+
+} else if (score <= 23) {
+
+  rarityRank.textContent =
+    "EPIC";
+
+} else {
+
+  rarityRank.textContent =
+    "LEGENDARY";
+}
+
 shareScore.textContent =
   `${score} / 25`;
 
