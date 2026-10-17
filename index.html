@@ -42,15 +42,16 @@
       margin-bottom: 20px;
     }
 
-  .dogeday-banner {
+.dogeday-banner {
   display: block;
-  width: 100%;
-  max-width: 100%;
+  width: min(1200px, calc(100vw - 32px));
+  max-width: none;
   height: auto;
   object-fit: contain;
   border: 3px solid #111;
   border-radius: 24px;
-  margin: 0 auto 20px;
+  margin: 0 0 20px 50%;
+  transform: translateX(-50%);
 }
 
     .brand-small {
