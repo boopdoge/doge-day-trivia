@@ -771,11 +771,82 @@
   font-weight: 800;
   color: #666;
 }
-  
+
+    .falling-questions {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.falling-question {
+  position: absolute;
+  top: -80px;
+  color: #b87b23;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  opacity: 0;
+  animation: questionFall linear infinite;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes questionFall {
+  0% {
+    transform: translateY(0) rotate(-15deg);
+    opacity: 0;
+  }
+  10%, 85% {
+    opacity: 0.28;
+  }
+  100% {
+    transform: translateY(calc(100vh + 160px)) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .falling-questions {
+    display: none;
+  }
+}
   </style>
 </head>
 
 <body>
+
+<body>
+
+  <div
+    id="fallingQuestions"
+    class="falling-questions"
+    aria-hidden="true"
+  ></div>
+
+  <script>
+    (() => {
+      const container = document.getElementById("fallingQuestions");
+      const count = window.innerWidth < 600 ? 8 : 16;
+
+      for (let i = 0; i < count; i++) {
+        const mark = document.createElement("span");
+        const duration = 14 + Math.random() * 12;
+
+        mark.className = "falling-question";
+        mark.textContent = "?";
+        mark.style.left = `${Math.random() * 96}%`;
+        mark.style.fontSize = `${24 + Math.random() * 24}px`;
+        mark.style.animationDuration = `${duration}s`;
+        mark.style.animationDelay = `${-Math.random() * duration}s`;
+
+        container.appendChild(mark);
+      }
+    })();
+  </script>
 
   <div class="page">
     <div class="game">
